@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <script async="" src="http://api.twitter.com/1/statuses/user_timeline.json?screen_name=envato&amp;count=3&amp;include_rts=1&amp;page=1&amp;include_entities=1&amp;callback=jQuery18205859207268804312_1445762276021&amp;_=1445762276162"></script>
+    <meta charset="utf-8">
+    <title>Shop Thời Trang Online</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet" type="text/css">
+
+    <link href="~/Content/Style/prettyPhoto.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" id="camera-css" href="~/Content/Style/camera.css" type="text/css" media="all">
+    <link href="~/Content/Style/bootstrap.css" rel="stylesheet">
+    <link href="~/Content/Style/theme.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="~/Content/Style/skins/tango/skin.css">
+    <link href="~/Content/Style/bootstrap-responsive.css" rel="stylesheet">
+    <link href="~/Content/Style/Products.css" rel="stylesheet" />
+    <link href="~/Content/Style/Login.css" rel="stylesheet" />
+    <link href="~/Content/Style/03-default.css" rel="stylesheet" />
+    <link href="~/Content/Style/04-module.css" rel="stylesheet" />
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+    <!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+<body id="PageBody" style="background: #ffffff">
+    <div class="topheade">
+        @RenderPage("_TopHeader.cshtml")
+    </div>
+    <header>
+        @RenderPage("_Header.cshtml")
+    </header>
+
+    <div>
+        @RenderBody()
+    </div>
+    <footer>
+        @RenderPage("_Footer.cshtml")
+    </footer>
+    <script src="~/Scripts/jquery-1.8.2.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="~/Scripts/js/jquery.mobile.customized.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/js/camera.js"></script>
+    <script src="~/Scripts/js/bootstrap.js"></script>
+    <script src="~/Scripts/js/superfish.js"></script>
+    <script type="text/javascript" src="~/Scripts/js/jquery.prettyPhoto.js"></script>
+    <script type="text/javascript" src="~/Scripts/js/jquery.jcarousel.js"></script>
+    <script type="text/javascript" src="~/Scripts/js/jquery.tweet.js"></script>
+    <script type="text/javascript" src="~/Scripts/js/myscript.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //Slider
+            $('#camera_wrap_1').camera();
+
+            //Featured works & latest posts
+            $('#mycarousel, #mycarousel2, #newscarousel').jcarousel();
+        });
+    </script>
+</body>
+</html>

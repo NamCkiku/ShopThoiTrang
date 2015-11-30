@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+    <script src="~/Content/ckeditor_4.5.4_standard/ckeditor/ckeditor.js"></script>
+}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Quản Lý Tin Tức   
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true)
+                            <form role="form">
+                                <div class="form-group">
+                                    <label>Tiêu Đề Tin</label>
+                                    @Html.TextBox("txttieudetin", "", new { @class = "form-control" })
+                                    <p class="help-block">Nhập Đầy Đủ Tên Sản Phẩm</p>
+                                </div>
+                                <div class="form-group">
+                                    <label>Loại Tin</label>
+                                    <select class="form-control" name="secloaitin">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Ngày Đăng</label>
+                                    <input class="form-control" type="date" name="datengaynhap" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Mô Tả Tóm Tắt</label>
+                                    <textarea rows="5" cols="20" class="form-control" name="txtmotatomtat" id="motatomtat"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Mô Tả Chi Tiết</label>
+                                    <textarea rows="5" cols="20" class="form-control" name="txtmotachitiet" id="motachitiet"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary" name="btnnhap">Nhập</button>
+                                <button type="reset" class="btn btn-success">Reset</button>
+                            </form>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script  type="text/javascript">
+    var ckeditor;
+    function createEditor(languageCode, id) {
+        var editor = CKEDITOR.replace(id, { language: languageCode });
+    }
+    $(function () {
+        createEditor("vi", "motatomtat")
+    });
+</script>
+<script  type="text/javascript">
+    var ckeditor;
+    function createEditor(languageCode, id) {
+        var editor = CKEDITOR.replace(id, { language: languageCode });
+    }
+    $(function () {
+        createEditor("vi", "motachitiet")
+    });
+</script>

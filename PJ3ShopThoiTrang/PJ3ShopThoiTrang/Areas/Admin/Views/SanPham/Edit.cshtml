@@ -1,0 +1,93 @@
+﻿@model PJ3ShopThoiTrang.Models.SanPham
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+    <script src="~/Content/ckeditor_4.5.4_standard/ckeditor/ckeditor.js"></script>
+}
+
+<h2>Sửa Thông Tin Sản Phẩm</h2>
+
+@using (Html.BeginForm())
+{
+    <form role="form">
+        <div class="form-group">
+            <label>Tên Sản Phẩm</label>
+            @Html.TextBoxFor(x => x.TenSanPham, "", new { @class = "form-control" })
+            <p class="help-block">Nhập Đầy Đủ Tên Sản Phẩm</p>
+        </div>
+        <div class="form-group">
+            <label>Loại Sản Phẩm</label>
+            @Html.DropDownListFor(model => model.IDLoaiSanPham, (SelectList)ViewBag.ListOfClientIDs, new { @class = "form-control" })
+            @*<select class="form-control" name="secloaisp">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>*@
+        </div>
+        <div class="form-group">
+            <label>Size</label>
+            <select class="form-control" name="secsize">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+
+        </div>
+        <div class="form-group">
+            <label>Thương Hiệu</label>
+            @Html.TextBoxFor(x => x.ThuongHieu, "", new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Gía Mua(VNĐ)</label>
+            @Html.TextBoxFor(x => x.GiaMua, "", new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Gía Bán(VNĐ)</label>
+            @Html.TextBoxFor(x => x.GiaBan, "", new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Mầu Sắc</label>
+            @Html.TextBoxFor(x => x.MauSac, "", new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Kểu Dáng</label>
+            @Html.TextBoxFor(x => x.KieuDang, "", new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Số Lượng</label>
+            @Html.TextBoxFor(x => x.SoLuong, "", new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Ngày Nhập Hàng</label>
+            @Html.TextBoxFor(x => x.NgayNhap, "", new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Ảnh Sản Phẩm</label>
+            @Html.TextBoxFor(x => x.Anh, "", new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Mô Tả</label>
+            @Html.TextAreaFor(x => x.MoTa, new { htmlAttributes = new { @class = "form-control" }, id = "mota" })
+        </div>
+        <button type="submit" class="btn btn-primary" name="btnnhap">Update</button>
+    </form>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+<script type="text/javascript">
+    var ckeditor;
+    function createEditor(languageCode, id) {
+        var editor = CKEDITOR.replace(id, { language: languageCode });
+    }
+    $(function () {
+        createEditor("vi", "mota")
+    });
+</script>

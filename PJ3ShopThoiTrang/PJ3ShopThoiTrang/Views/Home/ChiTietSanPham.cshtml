@@ -1,0 +1,70 @@
+﻿@model PJ3ShopThoiTrang.Models.SanPham
+
+@{
+    ViewBag.Title = "ChiTietSanPham";
+    Layout = "~/Views/Layout/_Layout.cshtml";
+}
+
+<script type="text/javascript">
+    function addProduct(idsanpham) {
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("AddItem", "GioHang")',
+            data: { productId: idsanpham, quantity: 1 },
+            success: function (data) {
+                alert("Thêm Vào Gio Hàng Thành Công")
+            },
+        });
+    }
+</script>
+<div class="form-content">
+    <div class="ProductDetailContainer DetailItem clearfix">
+        <div id="ProductDetail" class="PrimaryProductDetails">
+            <div class="BlockContent clearfix">
+                <h1 class="translated">@Model.TenSanPham</h1>
+                <img style="display: none;" src="/@Model.Anh"><table border="0" cellpadding="0" cellspacing="0">
+                    <tbody>
+                        <tr>
+                            <td width="1%" style="vertical-align: top; margin: 0 10px;">
+                                <div class="ProductThumb">
+                                    <div style="display: none;" id="LightBoxImages"><a href="#" class="iframe"></a></div>
+                                    <div style="position: relative;" class="">
+                                        <a onclick="return hs.expand(this)" id="thumb1" href="/@Model.Anh" class="jqzoom" style="outline-style: none; cursor: pointer; display: block; margin: auto; position: relative; height: 300px; width: 300px;" title="">
+                                            <img src="/@Model.Anh" title="" style="position: absolute; top: 0px; left: 0px;">
+                                        </a>
+                                        <div class="icon-status"></div>
+                                    </div>
+                                    <div style="padding-left: 51px;" id="slideShow" class="ImageCarouselBox">
+                                        <div class="carousel listImages" style="padding-top: 5px; visibility: visible; overflow: hidden; position: relative; z-index: 2; left: 0px; width: 152px;">
+                                            <ul style="margin: 0px; padding: 0px; position: relative; list-style-type: none; z-index: 1; width: 38px; left: 0px;">
+                                                <li style="overflow: hidden; float: left; width: 30px; height: 30px;"><a id="image" href="/@Model.Anh" onclick="return hs.expand(this)" onmouseover="showimage('/@Model.Anh','/@Model.Anh');">
+                                                    <img src="/@Model.Anh">
+                                                </a></li>
+                                            </ul>
+                                        </div>
+                                        <br class="clear">
+                                    </div>
+                                    <script type="text/javascript">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     $(document).ready(function () { showimage('http://demo85.web24h.vn/images/thumbs/0001696349_a300.jpeg', 'http://demo85.web24h.vn/images/thumbs/0001696349_a.jpeg') });</script>
+                                </div>
+                            </td>
+                            <td style="vertical-align: top;">
+                                <div class="ProductMain mar-left">
+                                    <div class="DetailRow clearfix">
+                                        <label class="fl" style="width: 20%;"><b><span id="lbltextprice">Giá bán:</span></b> <em class="ProductPrice VariationProductPrice"></em></label>
+                                        <label class="fl" style="width: 75%;"><em class="ProductPrice VariationProductPrice"><span id="lblprice"><b>@Model.GiaBan VNĐ</b></span></em></label>
+                                    </div>
+                                    <div class="DetailRow clearfix">
+                                    </div>
+                                    <div class="BulkDiscount"><a href="/GioHang/Index" onclick="addProduct(@Model.IDSanPham)" class="btn-class btn-cart"><span><span>Đặt hàng</span></span></a></div>
+                                    <div class="DetailRow">
+                                        <b>Miêu tả:</b><h2 class="Value detailDec"><span id="lbldec" disabled="disabled">@Html.Raw(Model.MoTa)</span></h2>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

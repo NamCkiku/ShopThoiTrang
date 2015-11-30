@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "Order";
+    Layout = "~/Views/Layout/_Layout.cshtml";
+    <link href="~/Content/Admin/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+}
+@model List<PJ3ShopThoiTrang.Models.CartItem>
+<div class="Shopcart-step clearfix" id="head_step">
+    <ul class="clearfix">
+        <li class="fl"><a href="javascript:void(0);" id="header_step01"><span class="textnumber">1.</span><span class="txtpadding">Thông tin đơn hàng</span></a></li>
+        <li class="fl"><a href="javascript:void(0);" id="header_step02" class="selected"><span class="textnumber">2.</span><span class="txtpadding">Thông tin khách hàng</span></a></li>
+        <li class="fl"><a href="javascript:void(0);" id="header_step03"><span class="textnumber">4.</span><span class="txtpadding">Xác nhận</span></a></li>
+    </ul>
+</div>
+<table class="table table-hover">
+    <tr>
+        <th>Mã Sản Phẩm</th>
+        <th>Tên Sản Phẩm</th>
+        <th>Ảnh</th>
+        <th>Số Lượng</th>
+        <th>Đơn Gía</th>
+        <th>Thành Tiền</th>
+    </tr>
+    @foreach (var p in Model)
+    {
+        <tr>
+            <td>@p.Sanpham.IDSanPham</td>
+            <td>@p.Sanpham.TenSanPham</td>
+            <td>
+                <img src="/@p.Sanpham.Anh" width="50" height="60" /></td>
+            <td>
+                <input type="text" class="txtSoluong" data-id="@p.Sanpham.IDSanPham" value="@p.SoLuong" /></td>
+            <td>@p.Sanpham.GiaBan.GetValueOrDefault(0).ToString("N0")</td>
+            <td>@(p.Sanpham.GiaBan.GetValueOrDefault(0) * p.SoLuong)</td>
+        </tr>
+    }
+    <tr>
+        <th colspan="5" style="text-align: right">Tổng Tiền:@Model.Sum(x => x.SoLuong * x.Sanpham.GiaBan) VNĐ</th>
+        <th></th>
+    </tr>
+</table>
+<div class="col-lg-6">
+    @using (Html.BeginForm("Order", "GioHang", FormMethod.Post))
+    {
+        <div class="form-group">
+            <label>Người Nhận</label>
+            <input name="nguoinhan" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Điện Thoại</label>
+            <input name="dienthoai" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Địa Chỉ</label>
+            <input name="diachi" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input name="email" class="form-control" />
+        </div>
+        <button class="btn" type="submit">Gửi Đơn Hàng</button>
+    }
+</div>

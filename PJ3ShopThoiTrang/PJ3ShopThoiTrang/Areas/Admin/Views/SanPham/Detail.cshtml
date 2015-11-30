@@ -1,0 +1,63 @@
+﻿@model PJ3ShopThoiTrang.Models.SanPham
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Thông Tin Sản Phẩm</h2>
+<div class="col-lg-6">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Mã Sản Phẩm</th>
+                            <th>Mã Loại Sản Phẩm</th>
+                            <th>Mã Size</th>
+                            <th>Tên Sản Phẩm</th>
+                            <th>Thương Hiệu</th>
+                            <th>Gía Mua</th>
+                            <th>Gía Bán</th>
+                            <th>Mầu Sắc</th>
+                            <th>Kiểu Dáng</th>
+                            <th>Số Lượng</th>
+                            <th>Ngày Nhập</th>
+                            <th>Ảnh</th>
+                            <th>Mô Tả</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>@Html.DisplayFor(model => model.IDSanPham)</td>
+                            <td>@Html.DisplayFor(model => model.IDLoaiSanPham)</td>
+                            <td>@Html.DisplayFor(model => model.IDSize)</td>
+                            <td>@Html.DisplayFor(model => model.TenSanPham)</td>
+                            <td>@Html.DisplayFor(model => model.ThuongHieu)</td>
+                            <td>@Html.DisplayFor(model => model.GiaMua)</td>
+                            <td>@Html.DisplayFor(model => model.GiaBan)</td>
+                            <td>@Html.DisplayFor(model => model.MauSac)</td>
+                            <td>@Html.DisplayFor(model => model.KieuDang)</td>
+                            <td>@Html.DisplayFor(model => model.SoLuong)</td>
+                            <td>@Html.DisplayFor(model => model.NgayNhap)</td>
+                            <td>@Html.DisplayFor(model => model.Anh)</td>
+                            <td>@Html.DisplayFor(model => model.MoTa)</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.table-responsive -->
+        </div>
+        <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDSanPham }) |
+    @Html.ActionLink("Back to List", "Hien")
+</p>

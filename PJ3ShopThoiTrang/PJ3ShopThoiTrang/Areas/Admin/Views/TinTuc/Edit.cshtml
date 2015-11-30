@@ -1,0 +1,66 @@
+﻿@model PJ3ShopThoiTrang.Models.TinTuc
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+    <script src="~/Content/ckeditor_4.5.4_standard/ckeditor/ckeditor.js"></script>
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <form role="form">
+        <div class="form-group">
+            <label>Tiêu Đề Tin</label>
+            @Html.TextBoxFor(x => x.TieuDeTin, "", new { @class = "form-control" })
+            <p class="help-block">Nhập Đầy Đủ Tên Sản Phẩm</p>
+        </div>
+        <div class="form-group">
+            <label>Loại Tin</label>
+            <select class="form-control" name="secloaitin">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Ngày Đăng</label>
+            @Html.TextBoxFor(x => x.NgayDang, "", new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Mô Tả Tóm Tắt</label>
+            @Html.TextAreaFor(x => x.MoTaTomTat, new { htmlAttributes = new { @class = "form-control" }, id = "mota1" })
+        </div>
+        <div class="form-group">
+            <label>Mô Tả Chi Tiết</label>
+            @Html.TextAreaFor(x => x.MoTaChiTiet, new { htmlAttributes = new { @class = "form-control" }, id = "mota2" })
+        </div>
+        <button type="submit" class="btn btn-primary" name="btnnhap">Update</button>
+    </form>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Hien")
+</div>
+<script type="text/javascript">
+    var ckeditor;
+    function createEditor(languageCode, id) {
+        var editor = CKEDITOR.replace(id, { language: languageCode });
+    }
+    $(function () {
+        createEditor("vi", "mota1")
+    });
+</script>
+<script type="text/javascript">
+    var ckeditor;
+    function createEditor(languageCode, id) {
+        var editor = CKEDITOR.replace(id, { language: languageCode });
+    }
+    $(function () {
+        createEditor("vi", "mota2")
+    });
+</script>

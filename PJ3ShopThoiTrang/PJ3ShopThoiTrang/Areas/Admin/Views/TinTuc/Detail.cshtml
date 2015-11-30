@@ -1,0 +1,58 @@
+﻿@model PJ3ShopThoiTrang.Models.TinTuc
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Detail</h2>
+
+<fieldset>
+    <legend>TinTuc</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IDTin)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IDTin)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IDLoaiTin)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IDLoaiTin)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TieuDeTin)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TieuDeTin)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NgayDang)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NgayDang)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MoTaTomTat)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MoTaTomTat)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MoTaChiTiet)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MoTaChiTiet)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.IDTin }) |
+    @Html.ActionLink("Back to List", "Hien")
+</p>

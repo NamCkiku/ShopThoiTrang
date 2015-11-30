@@ -1,0 +1,99 @@
+﻿@model IEnumerable<PJ3ShopThoiTrang.Models.SanPham>
+
+@{
+    ViewBag.Title = "Hien";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<!-- Bootstrap Core CSS -->
+<link href="~/Content/Admin/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- MetisMenu CSS -->
+<link href="~/Content/Admin/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+<!-- DataTables CSS -->
+<link href="~/Content/Admin/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
+
+<!-- DataTables Responsive CSS -->
+<link href="~/Content/Admin/bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link href="~/Content/Admin/dist/css/sb-admin-2.css" rel="stylesheet">
+
+<!-- Custom Fonts -->
+<link href="~/Content/Admin/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Thông Tin Sản Phẩm 
+            </div>
+            <div class="panel-body">
+                <div class="dataTable_wrapper">
+                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <thead>
+                            <tr>
+                                <th>Anh
+                                </th>
+                                <th>Tên Sản Phẩm
+                                </th>
+                                <th>Gía Mua
+                                </th>
+                                <th>Gía Bán
+                                </th>
+                                <th>Số Lượng
+                                </th>
+                                <th>Ngày Nhập
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr class="gradeA">
+                                    <td>
+                                        <img src="/@Html.DisplayFor(modelItem => item.Anh)" width="30" height="30" /></td>
+                                    <td>@Html.DisplayFor(modelItem => item.TenSanPham)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.GiaMua)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.GiaBan)</td>
+                                    <td class="center">@Html.DisplayFor(modelItem => item.SoLuong)</td>
+                                    <td class="center">@Html.DisplayFor(modelItem => item.NgayNhap)</td>
+                                    <td>
+                                        <i class="fa fa-pencil-square-o"></i>@Html.ActionLink("Sửa", "Edit", new { id = item.IDSanPham }) |
+            <i class="fa fa-info-circle"></i>@Html.ActionLink("Chi Tiết", "Detail", new { id = item.IDSanPham }) |
+            <i class="fa fa-trash-o"></i>@Html.ActionLink("Xóa", "Delete", new { id = item.IDSanPham })
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- jQuery -->
+<script src="~/Content/Admin/bower_components/jquery/dist/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="~/Content/Admin/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="~/Content/Admin/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+<!-- DataTables JavaScript -->
+<script src="~/Content/Admin/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+<script src="~/Content/Admin/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="~/Content/Admin/dist/js/sb-admin-2.js"></script>
+
+<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+<script>
+    $(document).ready(function () {
+        $('#dataTables-example').DataTable({
+            responsive: true
+        });
+    });
+</script>

@@ -1,0 +1,32 @@
+﻿@model List<PJ3ShopThoiTrang.Models.SanPham>
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Layout/_Layout.cshtml";
+}
+<div class="wrap-slider-blocks">
+    <div class="sp-quan-tam">
+        <div class="block-slider-full sp-quan-tam" id="end-scroll-last-child-rg-box">
+            @if (Model != null)
+            {
+                foreach (var item in Model)
+                {
+                <div class="item_product">
+                    <div class="img_product">
+                        <img src="/@item.Anh" />
+                    </div>
+                    <div class="name-product">
+                        <a href="#">@item.TenSanPham</a>
+                        <p>Gía:@item.GiaBan VNĐ</p>
+                        <img src="~/img/marker20.png" />@Html.ActionLink("Mua Hàng", "ChiTietSanPham", new { id = item.IDSanPham })
+                    </div>
+                </div>
+                }
+            }
+            else
+            {
+            }
+        </div>
+    </div>
+</div>
+

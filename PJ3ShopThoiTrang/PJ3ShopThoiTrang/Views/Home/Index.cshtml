@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "Trang Chủ";
+    Layout = "~/Views/Layout/_Layout.cshtml";
+}
+@model Tuple<List<PJ3ShopThoiTrang.Models.LoaiSanPham>, List<PJ3ShopThoiTrang.Models.SanPham>, IPagedList<PJ3ShopThoiTrang.Models.SanPham>>
+@using PagedList
+@using PagedList.Mvc
+<!--slider-->
+<div id="main_slider">
+    <div class="camera_wrap" id="camera_wrap_1">
+        <div data-src="/img/slider/1.jpg"></div>
+        <div data-src="/img/slider/2.jpg"></div>
+        <div data-src="/img/slider/3.jpg"></div>
+    </div>
+    <!-- #camera_wrap_1 -->
+    <div class="clear"></div>
+</div>
+<!--//slider-->
+<div class="wrap-slider-blocks">
+    <div class="sp-quan-tam">
+        @foreach (var loaisanpham in Model.Item1)
+        {
+            <div class="block-slider-full sp-quan-tam" id="end-scroll-last-child-rg-box">
+
+                <div class="ttl-slider">
+                    <h3 class="tl">@loaisanpham.TenLoaiSanPham</h3>
+                </div>
+
+                @foreach (var sanpham in Model.Item2.Where(x => x.IDLoaiSanPham == @loaisanpham.IDLoaiSanPham).Take(6))
+                {
+                    <div class="item_product">
+                        <div class="img_product">
+                            <img src="/@sanpham.Anh" />
+                        </div>
+                        <div class="name-product">
+                            <a href="#">@sanpham.TenSanPham</a>
+                            <p>Gía:@sanpham.GiaBan VNĐ</p>
+                            <img src="~/img/marker20.png" />@Html.ActionLink("Mua Hàng", "ChiTietSanPham", new { id = sanpham.IDSanPham })
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="pagedList">
+                @Html.PagedListPager(Model.Item3, page => Url.Action("Index", new { page = page }), PagedListRenderOptions.Classic)
+            </div>
+        }
+    </div>
+</div>
