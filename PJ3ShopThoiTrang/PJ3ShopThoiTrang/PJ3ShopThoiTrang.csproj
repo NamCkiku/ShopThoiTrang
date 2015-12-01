@@ -196,6 +196,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\DonDatHangController.cs" />
     <Compile Include="Areas\Admin\Controllers\InitializeSimpleMembership.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\SanPhamController.cs" />
@@ -1378,6 +1379,7 @@
       <DependentUpon>ShopThoiTrang.edmx</DependentUpon>
       <LastGenOutput>ShopThoiTrang.cs</LastGenOutput>
     </Content>
+    <Content Include="Areas\Admin\Views\DonDatHang\Hien.cshtml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="img\assets\responsive-illustrations.png" />
     <Content Include="img\foot_logo.png" />

@@ -31,7 +31,9 @@ namespace PJ3ShopThoiTrang.Areas.Admin.Controllers
         }
         public ActionResult HomeAdmin()
         {
-            return View();
+            var hd = db.HoaDons.ToList();
+            var sp = db.SanPhams.ToList();
+            return View(Tuple.Create(hd,sp));
         }
 
     }

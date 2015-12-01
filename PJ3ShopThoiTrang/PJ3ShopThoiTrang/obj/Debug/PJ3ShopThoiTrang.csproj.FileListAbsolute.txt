@@ -82,7 +82,6 @@ E:\Hoc Tap\MVC 5\PJ3ShopThoiTrang\PJ3ShopThoiTrang\bin\zh-Hans\System.Spatial.re
 E:\Hoc Tap\MVC 5\PJ3ShopThoiTrang\PJ3ShopThoiTrang\bin\zh-Hant\System.Spatial.resources.dll
 E:\Hoc Tap\MVC 5\PJ3ShopThoiTrang\PJ3ShopThoiTrang\obj\Debug\PJ3ShopThoiTrang.dll
 E:\Hoc Tap\MVC 5\PJ3ShopThoiTrang\PJ3ShopThoiTrang\obj\Debug\PJ3ShopThoiTrang.pdb
-E:\Hoc Tap\MVC 5\PJ3ShopThoiTrang\PJ3ShopThoiTrang\obj\Debug\PJ3ShopThoiTrang.csprojResolveAssemblyReference.cache
 E:\Hoc Tap\MVC 5\PJ3ShopThoiTrang\PJ3ShopThoiTrang\bin\PagedList.dll
 E:\Hoc Tap\MVC 5\PJ3ShopThoiTrang\PJ3ShopThoiTrang\bin\PagedList.Mvc.dll
 E:\Hoc Tap\MVC 5\PJ3ShopThoiTrang\PJ3ShopThoiTrang\bin\PagedList.xml
