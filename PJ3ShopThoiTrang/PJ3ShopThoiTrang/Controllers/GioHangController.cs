@@ -71,33 +71,33 @@ namespace PJ3ShopThoiTrang.Controllers
             return View(list);
         }
         [HttpPost]
-        public ActionResult Order(FormCollection fr)
-        {
-            if (ModelState.IsValid)
-            {
-                HoaDon hd = new HoaDon();
-                string hoten = fr["nguoinhan"];
-                int dienthoai = int.Parse(fr["dienthoai"]);
-                string diachi = fr["diachi"];
-                hd.HoTen = hoten;
-                hd.DiaChi = diachi;
-                hd.SDT = dienthoai;
-                hd.NgayLap = DateTime.Now;
-                db.HoaDons.Add(hd);
+        //public ActionResult Order(FormCollection fr)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        HoaDon hd = new HoaDon();
+        //        string hoten = fr["nguoinhan"];
+        //        int dienthoai = int.Parse(fr["dienthoai"]);
+        //        string diachi = fr["diachi"];
+        //        hd.HoTen = hoten;
+        //        hd.DiaChi = diachi;
+        //        hd.SDT = dienthoai;
+        //        hd.NgayLap = DateTime.Now;
+        //        db.HoaDons.Add(hd);
 
-                var cart = (List<CartItem>)Session[CartSession];
-                foreach (var item in cart)
-                {
-                    var chitiet = new ChiTietHoaDon();
-                    chitiet.IDHoaDon = hd.IDHoaDon;
-                    chitiet.IDSanPham = item.Sanpham.IDSanPham;
-                    chitiet.SoLuong = item.SoLuong;
-                    db.ChiTietHoaDons.Add(chitiet);
-                }
-                db.SaveChanges();
-            }
-            return RedirectToAction("XacNhan");
-        }
+        //        var cart = (List<CartItem>)Session[CartSession];
+        //        foreach (var item in cart)
+        //        {
+        //            var chitiet = new ChiTietHoaDon();
+        //            chitiet.IDHoaDon = hd.IDHoaDon;
+        //            chitiet.IDSanPham = item.Sanpham.IDSanPham;
+        //            chitiet.SoLuong = item.SoLuong;
+        //            db.ChiTietHoaDons.Add(chitiet);
+        //        }
+        //        db.SaveChanges();
+        //    }
+        //    return RedirectToAction("XacNhan");
+        //}
         public ActionResult XacNhan()
         {
             return View();

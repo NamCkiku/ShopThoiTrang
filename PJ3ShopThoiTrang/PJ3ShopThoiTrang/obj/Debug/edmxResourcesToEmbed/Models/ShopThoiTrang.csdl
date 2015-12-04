@@ -1,30 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="ShopThoiTrangModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="ShopThoiTrangModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="ChiTietHoaDon">
     <Key>
       <PropertyRef Name="IDHoaDon" />
-      <PropertyRef Name="IDSanPham" />
     </Key>
     <Property Name="IDHoaDon" Type="Int32" Nullable="false" />
-    <Property Name="IDSanPham" Type="Int32" Nullable="false" />
+    <Property Name="IDSanPham" Type="Int32" />
+    <Property Name="IDSize" Type="Int32" />
     <Property Name="SoLuong" Type="Int32" />
+    <Property Name="DonGia" Type="Int32" />
+    <Property Name="HoTen" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="Int32" />
     <NavigationProperty Name="HoaDon" Relationship="Self.FK_ChiTietHoaDon_HoaDon" FromRole="ChiTietHoaDon" ToRole="HoaDon" />
-    <NavigationProperty Name="SanPham" Relationship="Self.FK_ChiTietHoaDon_SanPham1" FromRole="ChiTietHoaDon" ToRole="SanPham" />
+    <NavigationProperty Name="SanPham" Relationship="Self.FK_ChiTietHoaDon_SanPham" FromRole="ChiTietHoaDon" ToRole="SanPham" />
   </EntityType>
   <EntityType Name="HoaDon">
     <Key>
       <PropertyRef Name="IDHoaDon" />
     </Key>
-    <Property Name="IDHoaDon" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDHoaDon" Type="Int32" Nullable="false" />
     <Property Name="TenHoaDon" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="NgayLap" Type="DateTime" Precision="3" />
     <Property Name="NgayGiaoHang" Type="DateTime" Precision="3" />
+    <Property Name="IDKhachHang" Type="Int32" />
     <Property Name="TrangThai" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Name="IDSize" Type="Int32" />
-    <Property Name="HoTen" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Name="DiaChi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Name="SDT" Type="Int32" />
-    <NavigationProperty Name="ChiTietHoaDons" Relationship="Self.FK_ChiTietHoaDon_HoaDon" FromRole="HoaDon" ToRole="ChiTietHoaDon" />
+    <NavigationProperty Name="ChiTietHoaDon" Relationship="Self.FK_ChiTietHoaDon_HoaDon" FromRole="HoaDon" ToRole="ChiTietHoaDon" />
+    <NavigationProperty Name="KhachHang" Relationship="Self.FK_HoaDon_KhachHang" FromRole="HoaDon" ToRole="KhachHang" />
   </EntityType>
   <EntityType Name="KhachHang">
     <Key>
@@ -39,6 +41,7 @@
     <Property Name="GioiTinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="SDT" Type="Int32" />
     <Property Name="LaAdmin" Type="Boolean" />
+    <NavigationProperty Name="HoaDons" Relationship="Self.FK_HoaDon_KhachHang" FromRole="KhachHang" ToRole="HoaDon" />
   </EntityType>
   <EntityType Name="LoaiSanPham">
     <Key>
@@ -75,7 +78,7 @@
     <Property Name="NgayNhap" Type="DateTime" Precision="3" />
     <Property Name="Anh" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="MoTa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="ChiTietHoaDons" Relationship="Self.FK_ChiTietHoaDon_SanPham1" FromRole="SanPham" ToRole="ChiTietHoaDon" />
+    <NavigationProperty Name="ChiTietHoaDons" Relationship="Self.FK_ChiTietHoaDon_SanPham" FromRole="SanPham" ToRole="ChiTietHoaDon" />
     <NavigationProperty Name="LoaiSanPham" Relationship="Self.FK_SanPham_LoaiSanPham" FromRole="SanPham" ToRole="LoaiSanPham" />
     <NavigationProperty Name="SanPham_Size" Relationship="Self.FK_SanPham_SanPham_Size" FromRole="SanPham" ToRole="SanPham_Size" />
   </EntityType>
@@ -88,13 +91,23 @@
     <Property Name="MoTa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="SanPhams" Relationship="Self.FK_SanPham_SanPham_Size" FromRole="SanPham_Size" ToRole="SanPham" />
   </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
   <EntityType Name="TinTuc">
     <Key>
       <PropertyRef Name="IDTin" />
     </Key>
-    <Property Name="IDTin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDTin" Type="Int32" Nullable="false" />
     <Property Name="IDLoaiTin" Type="Int32" />
-    <Property Name="TieuDeTin" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="TieuDeTin" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
     <Property Name="NgayDang" Type="DateTime" Precision="3" />
     <Property Name="MoTaTomTat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="MoTaChiTiet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -102,7 +115,7 @@
   </EntityType>
   <Association Name="FK_ChiTietHoaDon_HoaDon">
     <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="1" />
-    <End Role="ChiTietHoaDon" Type="Self.ChiTietHoaDon" Multiplicity="*" />
+    <End Role="ChiTietHoaDon" Type="Self.ChiTietHoaDon" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="HoaDon">
         <PropertyRef Name="IDHoaDon" />
@@ -112,8 +125,8 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_ChiTietHoaDon_SanPham1">
-    <End Role="SanPham" Type="Self.SanPham" Multiplicity="1" />
+  <Association Name="FK_ChiTietHoaDon_SanPham">
+    <End Role="SanPham" Type="Self.SanPham" Multiplicity="0..1" />
     <End Role="ChiTietHoaDon" Type="Self.ChiTietHoaDon" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="SanPham">
@@ -121,6 +134,18 @@
       </Principal>
       <Dependent Role="ChiTietHoaDon">
         <PropertyRef Name="IDSanPham" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HoaDon_KhachHang">
+    <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="0..1" />
+    <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachHang">
+        <PropertyRef Name="IDKhachHang" />
+      </Principal>
+      <Dependent Role="HoaDon">
+        <PropertyRef Name="IDKhachHang" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -168,14 +193,19 @@
     <EntitySet Name="LoaiTinTucs" EntityType="Self.LoaiTinTuc" />
     <EntitySet Name="SanPhams" EntityType="Self.SanPham" />
     <EntitySet Name="SanPham_Size" EntityType="Self.SanPham_Size" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <EntitySet Name="TinTucs" EntityType="Self.TinTuc" />
     <AssociationSet Name="FK_ChiTietHoaDon_HoaDon" Association="Self.FK_ChiTietHoaDon_HoaDon">
       <End Role="HoaDon" EntitySet="HoaDons" />
       <End Role="ChiTietHoaDon" EntitySet="ChiTietHoaDons" />
     </AssociationSet>
-    <AssociationSet Name="FK_ChiTietHoaDon_SanPham1" Association="Self.FK_ChiTietHoaDon_SanPham1">
+    <AssociationSet Name="FK_ChiTietHoaDon_SanPham" Association="Self.FK_ChiTietHoaDon_SanPham">
       <End Role="SanPham" EntitySet="SanPhams" />
       <End Role="ChiTietHoaDon" EntitySet="ChiTietHoaDons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HoaDon_KhachHang" Association="Self.FK_HoaDon_KhachHang">
+      <End Role="KhachHang" EntitySet="KhachHangs" />
+      <End Role="HoaDon" EntitySet="HoaDons" />
     </AssociationSet>
     <AssociationSet Name="FK_SanPham_LoaiSanPham" Association="Self.FK_SanPham_LoaiSanPham">
       <End Role="LoaiSanPham" EntitySet="LoaiSanPhams" />

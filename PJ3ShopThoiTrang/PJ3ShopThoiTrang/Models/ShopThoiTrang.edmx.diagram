@@ -4,17 +4,19 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="729f8347a46e4008993c37511fc9ea12" Name="Diagram1">
-        <EntityTypeShape EntityType="ShopThoiTrangModel.ChiTietHoaDon" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopThoiTrangModel.HoaDon" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopThoiTrangModel.KhachHang" Width="1.5" PointX="7.75" PointY="2.375" IsExpanded="true" />
+      <Diagram DiagramId="9271e4a82f814840b4a6eeafcbeed136" Name="Diagram1">
+        <EntityTypeShape EntityType="ShopThoiTrangModel.ChiTietHoaDon" Width="1.5" PointX="5.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopThoiTrangModel.HoaDon" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopThoiTrangModel.KhachHang" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ShopThoiTrangModel.LoaiSanPham" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ShopThoiTrangModel.LoaiTinTuc" Width="1.5" PointX="5.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ShopThoiTrangModel.SanPham" Width="1.5" PointX="3" PointY="2.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ShopThoiTrangModel.SanPham_Size" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopThoiTrangModel.sysdiagram" Width="1.5" PointX="7.75" PointY="2.375" IsExpanded="true" />
         <EntityTypeShape EntityType="ShopThoiTrangModel.TinTuc" Width="1.5" PointX="8" PointY="7.5" IsExpanded="true" />
         <AssociationConnector Association="ShopThoiTrangModel.FK_ChiTietHoaDon_HoaDon" ManuallyRouted="false" />
-        <AssociationConnector Association="ShopThoiTrangModel.FK_ChiTietHoaDon_SanPham1" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopThoiTrangModel.FK_ChiTietHoaDon_SanPham" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopThoiTrangModel.FK_HoaDon_KhachHang" ManuallyRouted="false" />
         <AssociationConnector Association="ShopThoiTrangModel.FK_SanPham_LoaiSanPham" ManuallyRouted="false" />
         <AssociationConnector Association="ShopThoiTrangModel.FK_TinTuc_LoaiTinTuc" ManuallyRouted="false" />
         <AssociationConnector Association="ShopThoiTrangModel.FK_SanPham_SanPham_Size" ManuallyRouted="false" />

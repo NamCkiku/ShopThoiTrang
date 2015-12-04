@@ -14,6 +14,11 @@ namespace PJ3ShopThoiTrang.Models
     
     public partial class KhachHang
     {
+        public KhachHang()
+        {
+            this.HoaDons = new HashSet<HoaDon>();
+        }
+    
         public int IDKhachHang { get; set; }
         public string TenDangNhap { get; set; }
         public string MatKhau { get; set; }
@@ -23,5 +28,7 @@ namespace PJ3ShopThoiTrang.Models
         public string GioiTinh { get; set; }
         public Nullable<int> SDT { get; set; }
         public Nullable<bool> LaAdmin { get; set; }
+    
+        public virtual ICollection<HoaDon> HoaDons { get; set; }
     }
 }

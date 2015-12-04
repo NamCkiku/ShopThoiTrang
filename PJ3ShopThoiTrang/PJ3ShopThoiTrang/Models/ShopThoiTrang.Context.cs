@@ -32,6 +32,7 @@ namespace PJ3ShopThoiTrang.Models
         public DbSet<LoaiTinTuc> LoaiTinTucs { get; set; }
         public DbSet<SanPham> SanPhams { get; set; }
         public DbSet<SanPham_Size> SanPham_Size { get; set; }
+        public DbSet<sysdiagram> sysdiagrams { get; set; }
         public DbSet<TinTuc> TinTucs { get; set; }
     }
 }

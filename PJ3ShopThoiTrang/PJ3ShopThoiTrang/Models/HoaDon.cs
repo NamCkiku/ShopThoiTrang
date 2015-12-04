@@ -14,21 +14,14 @@ namespace PJ3ShopThoiTrang.Models
     
     public partial class HoaDon
     {
-        public HoaDon()
-        {
-            this.ChiTietHoaDons = new HashSet<ChiTietHoaDon>();
-        }
-    
         public int IDHoaDon { get; set; }
         public string TenHoaDon { get; set; }
         public Nullable<System.DateTime> NgayLap { get; set; }
         public Nullable<System.DateTime> NgayGiaoHang { get; set; }
+        public Nullable<int> IDKhachHang { get; set; }
         public string TrangThai { get; set; }
-        public Nullable<int> IDSize { get; set; }
-        public string HoTen { get; set; }
-        public string DiaChi { get; set; }
-        public Nullable<int> SDT { get; set; }
     
-        public virtual ICollection<ChiTietHoaDon> ChiTietHoaDons { get; set; }
+        public virtual ChiTietHoaDon ChiTietHoaDon { get; set; }
+        public virtual KhachHang KhachHang { get; set; }
     }
 }
