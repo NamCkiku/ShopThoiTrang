@@ -5,19 +5,19 @@
     <script src="~/Content/ckeditor_4.5.4_standard/ckeditor/ckeditor.js"></script>
 }
 @model PJ3ShopThoiTrang.Models.LoaiSanPham
-<div class="row">
-    <div class="col-lg-12">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                Quản Lý Sản Phẩm
-            </div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-lg-6">
-                        @using (Html.BeginForm())
-                        {
-                            @Html.AntiForgeryToken()
-                            @Html.ValidationSummary(true)
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Quản Lý Sản Phẩm
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-4">
                             <form role="form">
                                 <div class="form-group">
                                     <label>Tên Sản Phẩm</label>
@@ -36,19 +36,22 @@
                                         <option>4</option>
                                         <option>5</option>
                                     </select>
-
                                 </div>
                                 <div class="form-group">
                                     <label>Thương Hiệu</label>
                                     @Html.TextBox("txtthuonghieu", "", new { @class = "form-control" })
                                 </div>
-                                <div class="form-group">
-                                    <label>Gía Mua(VNĐ)</label>
+                                <label>Gía Mua(VNĐ)</label>
+                                <div class="form-group input-group">
+                                    <span class="input-group-addon">$</span>
                                     @Html.TextBox("txtgiamua", "", new { @class = "form-control" })
+                                    <span class="input-group-addon">.00</span>
                                 </div>
-                                <div class="form-group">
-                                    <label>Gía Bán(VNĐ)</label>
+                                <label>Gía Bán(VNĐ)</label>
+                                <div class="form-group input-group">
+                                    <span class="input-group-addon">$</span>
                                     @Html.TextBox("txtgiaban", "", new { @class = "form-control" })
+                                    <span class="input-group-addon">.00</span>
                                 </div>
                                 <div class="form-group">
                                     <label>Mầu Sắc</label>
@@ -71,19 +74,19 @@
                                     <input class="form-control" type="file" name="anhsp">
                                 </div>
                             </form>
-                        }
+                        </div>
                     </div>
                 </div>
+                <div class="form-group">
+                    <label>Mô Tả</label>
+                    <textarea rows="5" cols="20" class="form-control" name="txtmota" id="mota"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" name="btnnhap">Nhập</button>
+                <button type="reset" class="btn btn-success">Reset</button>
             </div>
-            <div class="form-group">
-                <label>Mô Tả</label>
-                <textarea rows="5" cols="20" class="form-control" name="txtmota" id="mota"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary" name="btnnhap">Nhập</button>
-            <button type="reset" class="btn btn-success">Reset</button>
         </div>
     </div>
-</div>
+}
 <script type="text/javascript">
     var ckeditor;
     function createEditor(languageCode, id) {

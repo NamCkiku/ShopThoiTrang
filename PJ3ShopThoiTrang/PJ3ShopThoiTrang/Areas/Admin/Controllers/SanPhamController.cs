@@ -23,7 +23,7 @@ namespace PJ3ShopThoiTrang.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 SanPham sp = new SanPham();
-                int loaisanpham = int.Parse(connection["secloaisp"]);
+                int loaisanpham = int.Parse(connection["IDLoaiSanPham"]);
                 int size = int.Parse(connection["secsize"]);
                 string tensp = connection["txttensanpham"];
                 string thuonghieu = connection["txtthuonghieu"];
@@ -75,7 +75,7 @@ namespace PJ3ShopThoiTrang.Areas.Admin.Controllers
         {
             var sp = db.SanPhams.First(x => x.IDSanPham == id);
             string tensp = connection["txttensanpham"];
-            int loaisanpham = int.Parse(connection["secloaisp"]);
+            int loaisanpham = int.Parse(connection["IDLoaiSanPham"]);
             int size = int.Parse(connection["secsize"]);
             string thuonghieu = connection["txtthuonghieu"];
             int giamua = int.Parse(connection["GiaMua"]);
